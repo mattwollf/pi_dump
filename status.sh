@@ -2,6 +2,7 @@
 
 ESTR="ERROR"
 OKSTR="OK"
+CLEARSTR="CLEAR"
 
 GREENLIGHT=20
 REDLIGHT=21
@@ -21,4 +22,9 @@ then
     gpio -g write $REDLIGHT 0
     gpio -g write $GREENLIGHT 1
     ./logok.py
+fi
+if [ "$CLEARSTR" == "$1" ]
+then
+    gpio -g write $REDLIGHT 0
+    gpio -g write $GREENLIGHT 0
 fi
